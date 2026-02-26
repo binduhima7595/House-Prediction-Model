@@ -5,8 +5,8 @@ stages:
     deps:
     - path: data/raw/housing.csv
       hash: md5
-      md5: 124f6b77cb08721550ea1c9e118b1691
-      size: 577963
+      md5: fa948aea2fe2303ac1ef1c73145b6419
+      size: 578070
     - path: src/preprocess.py
       hash: md5
       md5: 3ce366fa0352881f40e636f0934abe5d
@@ -14,15 +14,15 @@ stages:
     outs:
     - path: data/processed/train.csv
       hash: md5
-      md5: 836da3cc1ded533fad68e6fec89aba0e
-      size: 326676
+      md5: 1d2e06668717b7eaab795ab30b721f2d
+      size: 326739
   train:
     cmd: python src/train.py
     deps:
     - path: data/processed/train.csv
       hash: md5
-      md5: 836da3cc1ded533fad68e6fec89aba0e
-      size: 326676
+      md5: 1d2e06668717b7eaab795ab30b721f2d
+      size: 326739
     - path: src/train.py
       hash: md5
       md5: 5cc8053bb31399ac16c4aa86b19d7242
@@ -30,5 +30,5 @@ stages:
     outs:
     - path: models/model.pkl
       hash: md5
-      md5: ccea9ea294172bf129f8a15163344bc0
+      md5: 2fa91261f01ca478ccdc178230b5e91f
       size: 486465
