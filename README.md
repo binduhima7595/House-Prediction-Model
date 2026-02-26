@@ -87,5 +87,14 @@ Git → code version
 DVC → data + pipeline version
 MLflow → experiment tracking
 Pipeline reproducibility
+if u want to change the code in .csv file, after code changes please run below command
+git rm -r --cached data/processed/train.csv # we shall remove the train.csv first
+git commit -m "stop tracking processed data with git"
+
+dvc repro
+git add .
+git commit -m "update experiment"
+git pull --rebase
+git push
 
 
