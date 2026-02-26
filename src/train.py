@@ -37,8 +37,9 @@ with mlflow.start_run():
 #   rmse = mean_squared_error(y_test, preds, squared=False) not compatible with older versions of sklearn
     rmse = mean_squared_error(y_test, preds) ** 0.5
 
-    mlflow.log_params(params["model"])
+    mlflow.log_param("n_estimators", params["model"]["n_estimators"])
     mlflow.log_metric("rmse", rmse)
+    mlflow.sklearn.log_model(model, "model")
 
     os.makedirs("models", exist_ok=True)
     joblib.dump(model, "models/model.pkl")
